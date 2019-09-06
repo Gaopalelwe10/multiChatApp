@@ -1,0 +1,12 @@
+.middle {
+    height: 100%;
+    display: block;
+}
+
+:root {
+    .scrollcontent {
+        justify-content: center;
+        display: flex!important;
+        align-items: center!important;
+    }
+}

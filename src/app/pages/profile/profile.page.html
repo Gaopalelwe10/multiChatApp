@@ -1,0 +1,59 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>profile</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="profile">
+    <ion-list lines="none">
+        <ion-list>
+            <div *ngFor="let user of users | async">
+                <div *ngIf="currentuser == user.uid">
+
+
+                    <div class="profile-image">
+                        <div *ngIf="user.photoURL =='' ">
+                            <img src="/assets/img/avatar.svg">
+
+                        </div>
+                        <div *ngIf="user.photoURL !='' ">
+                            <img data-src="{{user.photoURL}}">
+                        </div>
+                        <!-- <ion-img class="profile-pic" (change)="uploadFile($event)" src="{{photoURL}}.jpeg"></ion-img> -->
+                        <!-- <input class="input" type="file" (change)="uploadFile($event)" />
+                        <ion-icon name="reverse-camera" class="input"> </ion-icon> -->
+
+                        <div class="image-upload">
+                            <label for="file-input">
+                                    <ion-icon name="camera"  class="input" color="medium"> </ion-icon>
+                                </label>
+
+                            <input id="file-input" class="input" type="file" (change)="uploadFile($event)" />
+                        </div>
+                    </div>
+                    <div *ngIf="uploadPercent">
+                        <ion-progress-bar value="{{ uploadPercent | async }}" buffer="0.5"></ion-progress-bar>
+                        <!-- <ion-progress-bar color="primary" value="{{ uploadPercent | async }}"></ion-progress-bar> -->
+                    </div>
+
+                    <ion-list>
+
+                        <ion-item>
+                            <ion-label>Name</ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-icon name="create" slot="end" (click)="presentAlertPrompt()"></ion-icon>
+                            <ion-label>{{user.displayName}}</ion-label>
+
+                            <ion-icon name="person" slot="start"></ion-icon>
+                        </ion-item>
+                    </ion-list>
+
+                </div>
+            </div>
+        </ion-list>
+    </ion-list>
+
+    <!-- <div>persent : {{ uploadPercent | async }}</div> -->
+
+</ion-content>

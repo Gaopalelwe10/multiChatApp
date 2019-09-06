@@ -1,0 +1,53 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>login</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content color="warning">
+    <!-- <ion-item>
+        <ion-label position="floating">
+            Email
+        </ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">
+            password
+        </ion-label>
+        <ion-input [(ngModel)]="pwd" type="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button (click)="login()">Login</ion-button>
+
+    <b>or</b>
+    <br>
+
+    <ion-button (click)="goto_singup()" fill="clear">SignUp</ion-button>
+
+    <ion-button (click)="ano()">ano</ion-button> -->
+    <ion-grid style="height: 100%;">
+        <ion-row justify-content-center align-items-center style="height: 100%;">
+
+            <form [formGroup]="loginForm">
+
+                <ion-item color="warning">
+                    <ion-label position="stacked">Email Label</ion-label>
+                    <ion-input type="email" formControlName="email" placeholder="Email address"></ion-input>
+                </ion-item>
+                <ion-item color="warning">
+                    <ion-label position="stacked">Password</ion-label>
+                    <ion-input type="password" formControlName="pwd" placeholder="password"></ion-input>
+                </ion-item><br>
+                <ion-button expand="block" (click)="login()" color="tertiary">login</ion-button>
+                <ion-button expand="block" (click)="AnonymusLogin()" color="tertiary">Anonymus</ion-button>
+                <p [routerDirection]="'forward'" [routerLink]="['/signup']" class="center"> Dont have account? Sign Up</p>
+            </form>
+
+            <!-- <ion-button expand="block" [routerDirection]="'forward'" [routerLink]="['/signup']">Register</ion-button> -->
+            <br>
+
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

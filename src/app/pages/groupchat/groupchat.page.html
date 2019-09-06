@@ -1,0 +1,92 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>groupchat</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content #scrollArea padding>
+    <!-- <div *ngIf="!(chatRef| async)?.length"> -->
+    <!-- <div *ngIf="!skel">
+        <div *ngFor="let n of [0, 1, 2, 3, 4, 5, 6, 7,8,9,10,11,12]" class="ion-padding custom-skeleton chat">
+            <div>
+                <ion-skeleton-text animated style="width: 50%; float: right;"></ion-skeleton-text>
+            </div>
+            <div style="float: left;">
+                <span class="name">
+                <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text><br>
+                </span>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="chat" *ngFor="let chat of chatRef | async">
+
+        <div class="me" *ngIf="uid == chat.Userid" (click)="share(chat)">
+            {{chat.Message}}
+            <div *ngIf="chat.picUpload !='' ">
+                <div class="profile-image">
+                    <img data-src="{{chat.picUpload}}">
+                </div>
+            </div>
+        </div>
+        <div class="you" *ngIf="uid != chat.Userid" (click)="share(chat)">
+            <span class="name">
+            {{chat.displayName}}<br>
+         </span> {{chat.Message}}
+            <div *ngIf="chat.picUpload !='' ">
+                <div class="profile-image">
+                    <img data-src="{{chat.picUpload}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="!chatRef">
+        <div class="ion-padding custom-skeleton">
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            <ion-skeleton-text animated></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </div>
+    </div> -->
+    <!-- {{uid}} -->
+    <!-- <ion-item>
+        <ion-input type="password" placeholder="Password"></ion-input>
+
+        <ion-icon name="send" color="primary"></ion-icon>
+
+    </ion-item> -->
+    <br>
+    <br>
+    <br>
+</ion-content>
+
+<ion-footer slot="fixed" color="light">
+    <ion-list lines="none">
+        <ion-toolbar class="no-border">
+            <ion-item>
+                <ion-buttons slot="start">
+                    <ion-button>
+                        <div class="image-upload">
+                            <label for="file-input">
+                                <ion-icon name="attach"  class="input" color="warning"> </ion-icon>
+                            </label>
+
+                            <input id="file-input" class="input" type="file" (change)="uploadFile($event)" />
+                        </div>
+                    </ion-button>
+                </ion-buttons>
+                <ion-textarea [(ngModel)]="text" placeholder="Write your message ..."></ion-textarea>
+                <!-- <ion-input ></ion-input> -->
+                <!-- <ion-icon name="send" color="primary" (click)="send()"></ion-icon> -->
+                <ion-buttons item-right>
+                    <ion-button (click)="send()" slot="end">
+                        <ion-icon name="send" color="warning"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-item>
+        </ion-toolbar>
+    </ion-list>
+</ion-footer>

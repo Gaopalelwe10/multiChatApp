@@ -1,0 +1,7 @@
+{
+  "name": "multiChat",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,76 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>signup</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content padding color="warning">
+    <!-- <ion-item>
+        <ion-label position="floating">
+            Username
+        </ion-label>
+        <ion-input [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">
+            Email
+        </ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">
+            password
+        </ion-label>
+        <ion-input type="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button (click)="signup()">Signup</ion-button>
+
+    <b>or</b>
+
+    <br> -->
+
+    <ion-grid style="height: 100%;">
+        <ion-row justify-content-center align-items-center style="height: 100%;">
+
+            <form [formGroup]="signupForm">
+                <ion-item color="warning">
+                    <ion-label position="floating">Username</ion-label>
+                    <ion-input type="text" formControlName="username"></ion-input>
+                </ion-item>
+                <ion-item color="warning">
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="email" formControlName="email"></ion-input>
+                </ion-item>
+                <ion-item color="warning">
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input type="password" formControlName="pwd"></ion-input>
+                </ion-item><br>
+                <ion-button expand="block" (click)="signup()" color="tertiary">SignUp</ion-button>
+                <p [routerDirection]="'forward'" [routerLink]="['/login']" class="center"> Dont have account? Sign Up</p>
+            </form>
+            <!-- 
+            <ion-item color="warning">
+                <ion-label position="stacked">Username</ion-label>
+                <ion-input type="text" [(ngModel)]="username" placeholder="username"></ion-input>
+            </ion-item>
+
+            <ion-item color="warning">
+                <ion-label position="stacked">Email</ion-label>
+                <ion-input type="email" [(ngModel)]="email" placeholder="Email address"></ion-input>
+            </ion-item>
+
+            <ion-item color="warning">
+                <ion-label position="stacked">Password</ion-label>
+                <ion-input type="password" [(ngModel)]="pwd" placeholder="password"></ion-input>
+            </ion-item>
+
+            <br>
+            <ion-button expand="block" (click)="signup()" color="tertiary">Sign Up</ion-button>
+            <p [routerDirection]="'forward'" [routerLink]="['/login']" class="center"> Have an account? Login</p> -->
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>

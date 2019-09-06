@@ -1,0 +1,46 @@
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>chats</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+    <ion-list lines="none">
+        <ion-list>
+            <div *ngFor="let request of requestUsers | async">
+                <ion-item-sliding *ngFor="let user of users | async">
+
+                    <ion-item *ngIf="request.friend == user.uid && uid == request.sender " (click)="message(user)">
+                        <ion-avatar>
+                            <div class="profile-image">
+                                <div *ngIf="user.photoURL =='' ">
+                                    <img src="/assets/img/avatar.svg">
+                                </div>
+                                <div *ngIf="user.photoURL !='' ">
+                                    <img data-src="{{user.photoURL}}">
+                                </div>
+                            </div>
+                        </ion-avatar>
+                        <h2 style="padding-left:20px;">{{user.displayName}}</h2>
+                    </ion-item>
+
+
+
+                    <ion-item *ngIf="request.friend === uid && user.uid == request.sender" (click)="message(user)">
+                        <ion-avatar>
+                            <div class="profile-image">
+                                <div *ngIf="user.photoURL =='' ">
+                                    <img src="/assets/img/avatar.svg">
+                                </div>
+                                <div *ngIf="user.photoURL !='' ">
+                                    <img data-src="{{user.photoURL}}">
+                                </div>
+                            </div>
+                        </ion-avatar>
+                        <h2 style="padding-left:20px;">{{user.displayName}}</h2>
+                    </ion-item>
+                </ion-item-sliding>
+            </div>
+        </ion-list>
+    </ion-list>
+</ion-content>

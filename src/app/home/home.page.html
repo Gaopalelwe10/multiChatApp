@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="warning">
+        <ion-title>
+            CoCo-Chat
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button icon-only (click)="adduser()">
+                <ion-icon name="person-add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="openPopover($event)">
+                <ion-icon name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-tabs>
+        <ion-tab-bar slot="top" color="warning">
+            <ion-tab-button tab="chats" #tabName>
+                <ion-icon name="chatbubbles"></ion-icon>
+                <ion-label>Chats</ion-label>
+
+            </ion-tab-button>
+            <ion-tab-button tab="groupchat">
+                <ion-icon name="contacts"></ion-icon>
+                <ion-label>ChatRoom</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="profile">
+                <ion-icon name="contact"></ion-icon>
+                <ion-label>Profile</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+</ion-content>
